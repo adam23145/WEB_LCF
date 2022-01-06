@@ -14,6 +14,7 @@ include('top.php');
                         <tr>
 						<th>No</th>
 												<th>ID Pesanan</th>
+												<th>alamat</th>
 												<th>Nama Customer</th>
 												<th>Tanggal Order</th>
 												<th>Total</th>
@@ -29,6 +30,7 @@ include('top.php');
 												<tr>
 													<td><?php echo $no++ ?></td>
 													<td><strong><a href="order.php?orderid=<?php echo $p['orderid'] ?>">#<?php echo $p['orderid'] ?></a></strong></td>
+													<td><?php echo $p['alamat'] ?></td>
 													<td><?php echo $p['namalengkap'] ?></td>
 													<td><?php echo $p['tglorder'] ?></td>
 													<td>Rp<?php 

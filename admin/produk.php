@@ -53,6 +53,26 @@ if(isset($_POST["addproduct"])) {
 	}
 
 };
+if(isset($_POST["updateproduct"])) {
+    $id = $_POST['idproduk2'];
+    $namaproduk = $_POST['namaproduk2'];
+    $deskripsi = $_POST['deskripsi2'];
+	$idkategori=$_POST['idkategori2'];
+    $rate = $_POST['rate2'];
+    $hargabefore = $_POST['hargabefore2'];
+    $hargaafter = $_POST['hargaafter2'];
+    //query update
+    $query = "UPDATE produk SET namaproduk='$namaproduk' , idkategori='$idkategori' ,deskripsi='$deskripsi',rate='$rate',hargabefore='$hargabefore',hargaafter='$hargaafter' WHERE idproduk='$id' ";
+    if (mysqli_query($conn, $query)) {
+        echo "<div class='alert alert-warning'>Berhasil</div>
+		    <meta http-equiv='refresh' content='1; url= produk.php'/>";   
+    }
+    else{
+        echo "<div class='alert alert-warning'>Gagal Update</div>
+		    <meta http-equiv='refresh' content='1; url= produk.php'/>";
+    }
+};
+
 
 ?>
   		<div class="card">
@@ -94,14 +114,81 @@ if(isset($_POST["addproduct"])) {
 													<td><?php echo $p['rate'] ?></td>
 													<td><?php echo $p['hargabefore'] ?></td>
 													<td><?php echo $p['tgldibuat'] ?></td>
-													<td><a href="hapusproduk.php?id_produk=<?php echo $p['idproduk']; ?>"onClick="return confirm('Hapus Inputan?')"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a></td>
+													<td>
+														<a href="hapusproduk.php?id_produk=<?php echo $p['idproduk']; ?>"onClick="return confirm('Hapus Inputan?')"><label class="badge badge-danger delete_red hand_cursor">Delete</label></a>
+														<a href="#" type="button" data-toggle="modal" data-target="#myModal2<?php echo $p['idproduk']; ?>"><label style="margin-top: 10px;" class="badge badge-danger delete_white hand_cursor">Edit</a>
+													</td>
 													
 												</tr>		
-												
+												<div id="myModal2<?php echo $p['idproduk']; ?>" class="modal fade">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Update Produk</h4>
+                                                            </div>
+                                                            
+                                                            <div class="modal-body">
+                                                            <form action="produk.php" method="post" enctype="multipart/form-data" >
+                                                            <?php
+                                                                $id = $p['idproduk']; 
+                                                                $query_edit = mysqli_query($conn, "SELECT * FROM produk WHERE idproduk='$id'");
+                                                                while ($row = mysqli_fetch_array($query_edit)) {  
+                                                                ?>
+                                                                    <input type="hidden" name="idproduk2" value="<?php echo $row['idproduk']; ?>">
+                                                                    <div class="form-group">
+                                                                        <label>Nama Produk</label>
+                                                                        <input name="namaproduk2" value="<?php echo $row['namaproduk']; ?>" type="text" class="form-control" required autofocus>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Nama Kategori</label>
+                                                                        <select name="idkategori2" class="form-control">
+                                                                        <option selected>Pilih Kategori</option>
+
+                                                                        <?php
+                                                                        $det=mysqli_query($conn,"select * from kategori order by namakategori ASC")or die(mysqli_error($conn));
+                                                                        while($d=mysqli_fetch_array($det)){
+                                                                        ?>
+                                                                            
+                                                                            <option value="<?php echo $d['idkategori'] ?>"><?php echo $d['namakategori'] ?></option>
+                                                                            <?php
+                                                                    }
+                                                                    ?>		
+                                                                        </select>
+                                                                        
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Deskripsi</label>
+                                                                        <input name="deskripsi2" value="<?php echo $row['deskripsi']; ?>" type="text" class="form-control" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Rating (1-5)</label>
+                                                                        <input name="rate2" value="<?php echo $row['rate']; ?>"  type="number" class="form-control"  min="1" max="5" required>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Harga Sebelum Diskon</label>
+                                                                        <input name="hargabefore2" value="<?php echo $row['hargabefore']; ?>"  type="number" class="form-control">
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label>Harga Setelah Diskon</label>
+                                                                        <input name="hargaafter2" value="<?php echo $row['hargaafter']; ?>"  type="number" class="form-control">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                    <input name="updateproduct" type="submit" class="btn btn-primary" value="Update">
+                                                                </div>
+                                                                <?php 
+                                                                    }
+                                                                    ?>   
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+	
 												<?php 
 											}
-											
-												
+									
 											
 		
 											?>
