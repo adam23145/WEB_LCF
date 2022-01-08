@@ -16,6 +16,12 @@
     opacity: 1;
   }
 }
+.btn-red{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    cursor: pointer;
+}
 
 @-webkit-keyframes flash {
   0% {

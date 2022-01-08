@@ -42,6 +42,23 @@ if(isset($_POST['selesai']))
 		
 	};
 
+	if(isset($_POST['Cancel']))
+	{
+		$updatestatus = mysqli_query($conn,"update cart set status='Dibatalkan' where orderid='$orderids'");
+		
+		if($updatestatus){
+			echo " <div class='alert alert-success'>
+			<center>Transaksi dicancel.</center>
+		  </div>
+		<meta http-equiv='refresh' content='1; url= manageorder.php'/>  ";
+		} else {
+			echo "<div class='alert alert-warning'>
+			Gagal Cancel, silakan coba lagi
+		  </div>
+		 <meta http-equiv='refresh' content='1; url= manageorder.php'/> ";
+		}
+	};
+
 ?>
 
 		  
@@ -144,7 +161,7 @@ if(isset($_POST['selesai']))
 									</div>
 									<br><br>
 									<form method="post">
-									<input type="submit" name="kirim" class="form-control btn btn-success" value="Kirim" \>
+									<input type="submit" name="kirim" class="form-control btn btn-success" style="margin-top:10px;" value="Kirim" \>
 									</form>
 									';
 									}
@@ -153,6 +170,14 @@ if(isset($_POST['selesai']))
 										echo '
 									<form method="post">
 									<input type="submit" name="selesai" class="form-control btn btn-success" value="Selesaikan" \>
+									</form>
+									<form method="post">
+									<input type="submit" name="Cancel" class="form-control btn btn-success"" 
+									style="margin-top:10px;
+									color: #fff;
+									background-color: #dc3545;
+									border-color: #dc3545;
+									cursor: pointer;" value="Cancel" \>
 									</form>
 									';
 									}

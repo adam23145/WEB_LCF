@@ -19,9 +19,10 @@ include('top.php');
 												<th>Tanggal Order</th>
 												<th>Total</th>
 												<th>Status</th>
+												<th>Actions</th>
 											</tr></thead><tbody>
 											<?php 
-											$brgs=mysqli_query($conn,"SELECT * from cart c, login l where c.userid=l.userid and status!='Cart' and status!='Selesai' order by idcart ASC");
+											$brgs=mysqli_query($conn,"SELECT * from cart c, login l where c.userid=l.userid and status!='Cart' and status!='Selesai' and status!='Dibatalkan' order by idcart ASC");
 											$no=1;
 											while($p=mysqli_fetch_array($brgs)){
 											$orderids = $p['orderid'];
@@ -62,6 +63,9 @@ include('top.php');
 													}
 													
 													?></td>
+													<td>
+													<a href="order.php?orderid=<?php echo $p['orderid'] ?>"><label class="badge badge-danger delete_white hand_cursor">Confirm Order</label></a>
+													</td>
 												</tr>		
 												<?php 
 											}

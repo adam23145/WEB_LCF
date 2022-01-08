@@ -50,7 +50,7 @@ $idk = $_GET['idkategori'];
                                                                     if($_SESSION['role']=='Admin'){
                                                                      }else{
                                                                      ?>
-                                                                    <a href="product.php?idproduk=<?php echo $p['idproduk'] ?>"><input class="btn btn-info" type="submit" class="button" value="Lihat Produk" /></a>
+                                                                    <a href="product.php?idproduk=<?php echo $p['idproduk'] ?>"><input class="btn btn-red" type="submit" class="button" value="Lihat Produk" /></a>
                                                                      
                                                                     <?php
                                                                     }

@@ -53,7 +53,7 @@ $timenow = date("j-F-Y-h:i:s A");
 				                        <form method="post">
 				            	        <input type="text" name="email" placeholder="Email" required>
 				            	        <input type="password" name="pass" placeholder="Password" required>
-				            	        <input type="submit" name="login" value="Masuk"  style="cursor:pointer">
+				            	        <input type="submit" name="login" value="Masuk" class ="btn btn-large btn-block btn-danger"  style="cursor:pointer">
 			                	        </form>
 		                    	        </div>
                                         </div>

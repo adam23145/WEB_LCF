@@ -35,7 +35,7 @@ if(isset($_POST['confirm']))
 		} else { echo "<div class='alert alert-warning'>
 			Gagal Submit, silakan ulangi lagi.
 		  </div>
-		 <meta http-equiv='refresh' content='3; url= konfirmasi.php'/> ";
+		 <meta http-equiv='refresh' content='3; url= index.php'/> ";
 		}
 		} else {
 			echo "<div class='alert alert-danger'>
@@ -78,7 +78,7 @@ if(isset($_POST['confirm']))
 					<br>
 					<h6>Tanggal Bayar</h6>
 					<input type="date" class="form-control" name="tanggal">
-					<input type="submit" name="confirm" value="Kirim">
+					<input type="submit" name="confirm" class="btn-red" value="Kirim">
 				</form>
 			</div>
 			<div class="register-home">

@@ -39,13 +39,13 @@ include ("header.php");
 															?>
                                                             </div>
                                                             <h4>Rp<?php echo number_format($p['hargaafter']) ?><span>Rp<?php echo number_format($p['hargabefore']) ?></span></h4>  
-                                                            <div class="snipcart-details top_brand_home_details">
+                                                            <div class="snipcart-details top_brand_home_details" style="cursor: hand;">
 																<fieldset>
                                                                     <?php
                                                                     if($_SESSION['role']=='Admin'){
                                                                      }else{
                                                                      ?>
-                                                                    <a href="product.php?idproduk=<?php echo $p['idproduk'] ?>"><input class="btn btn-info" type="submit" class="button" value="Lihat Produk" /></a>
+                                                                    <a href="product.php?idproduk=<?php echo $p['idproduk'] ?>"><input class="btn btn-red"  type="submit" class="button" value="Lihat Produk" /></a>
                                                                      
                                                                     <?php
                                                                     }

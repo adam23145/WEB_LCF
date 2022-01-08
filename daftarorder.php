@@ -94,14 +94,14 @@ if(isset($_POST["update"])){
 								<?php
 								if($b['status']=='Payment'){
 								echo '
-								<a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-primary">
+								<a href="konfirmasi.php?id='.$b['orderid'].'" class="form-control btn-red">
 								Konfirmasi Pembayaran
 								</a>
 								';}
 								else if($b['status']=='Diproses'){
 								echo 'Pesanan Diproses (Pembayaran Diterima)';
 								}
-								else if($b['status']=='Dikirim'){
+								else if($b['status']=='Pengiriman'){
 									echo 'Pesanan Dikirim';
 								} else if($b['status']=='Selesai'){
 									echo 'Pesanan Selesai';

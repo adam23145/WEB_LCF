@@ -119,7 +119,7 @@ $p = mysqli_fetch_array(mysqli_query($conn,"Select * from produk where idproduk=
 		<form action="#" method="post">
 			<fieldset>
 				<input type="hidden" name="idprod" value="<?php echo $idproduk ?>">
-				<input type="submit" name="addprod" value="Add to cart" class="button">
+				<input type="submit" name="addprod" value="Add to cart" class="button btn-red">
 			</fieldset>
 		</form>
 	</div>

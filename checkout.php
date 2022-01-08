@@ -15,16 +15,22 @@ if(!isset($_SESSION['log'])){
 
 if(isset($_POST["checkout"])){
 	if($totalharga = 0){
-		echo "Gagal Check Out
-		<meta http-equiv='refresh' content='1; url= index.php'/>";
+		echo " <div class='alert alert-warning'>
+			Gagal Melakukan Checkout
+		  </div>
+		<meta http-equiv='refresh' content='1; url= login.php'/>  ";
 	}else{
 	$q3 = mysqli_query($conn, "update cart set status='Payment' where orderid='$orderidd'");
 	if($q3){
-		echo "Berhasil Check Out
-		<meta http-equiv='refresh' content='1; url= index.php'/>";
+		echo " <div class='alert alert-success'>
+			Berhasil Melakukan Checkout
+		  </div>
+		<meta http-equiv='refresh' content='1; url= login.php'/>  ";
 	} else {
-		echo "Gagal Check Out
-		<meta http-equiv='refresh' content='1; url= index.php'/>";
+		echo " <div class='alert alert-warning'>
+			Gagal Melakukan Checkout
+		  </div>
+		<meta http-equiv='refresh' content='1; url= login.php'/>  ";
 	}
 }
 } else {
@@ -162,7 +168,7 @@ if(isset($_POST["checkout"])){
       
 		<br>
 		<form method="post">
-		<input type="submit" class="form-control btn btn-success" name="checkout" value="I Agree and Check Out" \>
+		<input type="submit" class="form-control btn btn-red" name="checkout" value="I Agree and Check Out" \>
 		</form>
 	  
 	  </center>

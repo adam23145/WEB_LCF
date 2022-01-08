@@ -393,7 +393,7 @@ ul.multi-column-dropdown h6 {
 .snipcart-details input.button {
     font-size: 14px;
     color: #fff;
-    background: #3399cc;
+    background: #dc3545;
     text-decoration: none;
     position: relative;
     border: none;
@@ -404,7 +404,7 @@ ul.multi-column-dropdown h6 {
     outline: none;
 }
 .agile_top_brand_left_grid:hover .snipcart-details input.button,.snipcart-details input.button:hover{
-    background: #fe9126;
+    background: #df848c;
 }
 .product_list_header input.button {
     color: #fff;
@@ -1065,39 +1065,45 @@ a.w3_agile_vimeo:hover{
 /*-- checkout --*/
 .checkout h2{
 	font-size:1em;
-	color:#212121;
+	color:#343a40;
 	text-transform:uppercase;
 	margin:0 0 3em;
 }
 .checkout h2 span{
-	color:#3399cc;
+	color:#dc3545;
 }
 table.timetable_sub {
 	width:100%;
 	margin:0 auto;
 }
 .timetable_sub thead {
-    background: #004284;
+    background: #242424;
 }
 .timetable_sub th {
-    background: #fe4626;
+    background: #242424;
     color: #fff !important;
     text-transform: capitalize;
     font-size: 13px;
-    border-right: 1px solid #fe9126;
+    border-right: 1px solid #242424;
 }
 .timetable_sub th, .timetable_sub td {
     text-align: center;
     padding: 7px;
     font-size: 14px;
-    color: #212121;
+    color: #242424;
 }
 .timetable_sub td {
-	border:1px solid #CDCDCD;
+	border:1px solid #242424;
 }
 td.invert-image a img {
     width:30%;
     margin: 0 auto;
+}
+.btn-red{
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    cursor: pointer;
 }
 .rem{
 	position:relative;
@@ -1180,7 +1186,7 @@ td.invert-image a img {
 /*-- quantity-end --*/
 .checkout-left-basket h4{
 	padding: 1em;
-    background:#3399cc;
+    background:#242424;
     font-size: 1.1em;
     color: #fff;
     text-transform: uppercase;
@@ -1220,11 +1226,11 @@ td.invert-image a img {
 	padding:10px 30px;
 	color:#fff;
 	font-size:1em;
-	background:#212121;
+	background:#242424;
 	text-decoration:none;
 }
 .checkout-right-basket a:hover{
-	background:#fe9126;
+	background:#dc3545;
 }
 .checkout-right-basket a span {
     left: -.5em;
